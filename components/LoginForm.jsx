@@ -13,7 +13,7 @@ const LoginForm = () => {
     const {data, error} = await logIn(email, password);
 
     if (!error) {
-      router.push("/dashboard?userId=" + data.user.id);
+      router.push("/dashboard");
     } else {
       console.log(error.message);
     }
@@ -26,7 +26,7 @@ const LoginForm = () => {
           <h1 className="text-5xl font-bold">Inicia Sesion!</h1>
           <p className="py-6">Ingresas tus datos para continuar.</p>
         </div>
-        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
           <form className="card-body" onSubmit={handleSubmit}>
             <div className="form-control">
               <label className="label">

@@ -25,3 +25,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.error{
+  position: absolute;
+  color: lightcoral;
+  font-size: 0.8rem;
+}

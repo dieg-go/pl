@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createActivity } from "@/lib/activities";
 import router from "next/router";
-export default function NewActivityCard(query) {
+export default function NewActivityCard({profile}) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -14,11 +14,11 @@ export default function NewActivityCard(query) {
       description,
       category,
       duration,
-      user_id: query.userId,
+      user_id: profile.id
     };
 
     createActivity(newActivity).then((data) => {
-      router.push("/activities?userId=" + query.userId);
+      router.push("/activities");
     });
 
   }

@@ -1,17 +1,27 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewActivityCard from "@/components/NewActivityCard";
-import { useRouter } from 'next/router'
-
-
+import Loading from "@/components/Loading";
+import ErrorHero from "@/components/ErrorHero";
+import { useAuth } from "@/lib/auth";
 export default function NewActivity() {
-  const router = useRouter()
-  const { userId } = router.query;
+  const {user, loading, profile} = useAuth();
+
+  if (loading)
+    return (
+      <Loading></Loading>
+    );
+
+  if (!user)
+    return (
+      <ErrorHero></ErrorHero>
+    );
+    
   return (
     <main>
       <Navbar></Navbar>
       <div >
-        <NewActivityCard userId={userId}></NewActivityCard>
+        <NewActivityCard profile={profile}></NewActivityCard>
       </div>
       <Footer></Footer>
     </main>
